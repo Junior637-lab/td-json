@@ -1,14 +1,22 @@
-let url = '/api'; // Rend le chemin relatif pour fonctionner en local ET sur Render
+let url = window.location.origin + '/api'; // Use full absolute URL for reliability
+console.log("Connecté à l'API via:", url);
+
 
 
 // 1. Charger etudiants
 function chargerEtudiants() {
     fetch(url + '/notes/moyennes')
     .then(function(reponse) { 
-        if (!reponse.ok) throw new Error("Impossible de charger les étudiants");
+        if (!reponse.ok) throw new Error("Erreur serveur ! Statut: " + reponse.status);
         return reponse.json(); 
     })
+    .catch(err => {
+        alert("🚨 Erreur de chargement: " + err.message);
+        console.error(err);
+    })
     .then(function(etudiants) {
+        if(!etudiants) return; // Stop si erreur
+
 
         let tableau = document.getElementById('table-etudiants');
         tableau.innerHTML = '';
@@ -75,8 +83,14 @@ function supprimerEtudiant(id) {
 // 4. Charger la boite de selection pour les notes
 function chargerSelectEtudiants() {
     fetch(url + '/etudiants')
-    .then(function(rep) { return rep.json(); })
+    .then(function(rep) { 
+        if (!rep.ok) throw new Error("Erreur de récupération des étudiants (" + rep.status + ")");
+        return rep.json(); 
+    })
+    .catch(err => console.error("Erreur SELECT:", err))
     .then(function(etudiants) {
+        if(!etudiants) return;
+
         let select = document.getElementById('select-etudiant-notes');
         
         // On sauvegarde le choix actuel pour ne pas le perdre lors du rafraichissement

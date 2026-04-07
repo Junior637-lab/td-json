@@ -5,8 +5,9 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 
 const app = express();
 app.use(cors());
-app.use(json()); // au lieu de body-parser
+app.use(express.json()); // Méthode plus stable sur tous les environnements
 app.use(express.static('.')); // Serves index.html, style.css, script.js
+
 
 const fichierDonnees = './data.json';
 
