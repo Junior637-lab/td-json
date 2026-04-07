@@ -1,0 +1,72 @@
+{
+  "etudiants": [
+    {
+      "id": 7139,
+      "nom": "cheikh ",
+      "prenom": "ciss",
+      "notes": [
+        {
+          "id": 4259,
+          "matiere": "math",
+          "valeur": 19
+        },
+        {
+          "id": 4415,
+          "matiere": "hg",
+          "valeur": 15
+        }
+      ]
+    },
+    {
+      "id": 9655,
+      "nom": "diop",
+      "prenom": "junior",
+      "notes": [
+        {
+          "id": 7711,
+          "matiere": "math",
+          "valeur": 15
+        },
+        {
+          "id": 3555,
+          "matiere": "hg",
+          "valeur": 15
+        }
+      ]
+    },
+    {
+      "id": 5881,
+      "nom": "diallo",
+      "prenom": "zize",
+      "notes": [
+        {
+          "id": 7253,
+          "matiere": "math",
+          "valeur": 20
+        },
+        {
+          "id": 5435,
+          "matiere": "hg",
+          "valeur": 15
+        }
+      ]
+    },
+    {
+      "id": 7182,
+      "nom": "diagne",
+      "prenom": "bicome",
+      "notes": [
+        {
+          "id": 569,
+          "matiere": "math",
+          "valeur": 5
+        },
+        {
+          "id": 1334,
+          "matiere": "hg",
+          "valeur": 20
+        }
+      ]
+    }
+  ]
+}

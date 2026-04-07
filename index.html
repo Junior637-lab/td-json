@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des étudiants</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- En-tête simple en haut -->
+    <div class="en-tete">
+        <h2>🎓 Plateforme de Gestion Étudiante</h2>
+        <!-- Les onglets ont été retirés pour un affichage tout-en-un ! -->
+    </div>
+
+    <!-- Conteneur principal -->
+    <div class="contenu" style="display: flex; flex-direction: column; gap: 50px;">
+        
+        <!-- Section Etudiants -->
+        <div id="section-etudiants">
+            <h1 style="color: var(--primary);">1. Liste des étudiants</h1>
+            
+            <div class="boite">
+                <h3>➕ Ajouter un étudiant</h3>
+                <form id="form-ajout-etudiant" onsubmit="ajouterEtudiant(event)" class="form-ajout">
+                    <input type="text" id="ajout-nom" placeholder="Nom de famille" required>
+                    <input type="text" id="ajout-prenom" placeholder="Prénom" required>
+                    <button type="submit" class="btn-ajouter">Sauvegarder l'étudiant</button>
+                </form>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="mon-tableau">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Moyenne</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-etudiants">
+                        <!-- injecter en JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section Notes -->
+        <div id="section-notes">
+            <h1 style="color: var(--primary);">2. Gestion des Notes</h1>
+            
+            <div class="boite notes-container">
+                <div class="selection-etudiant">
+                    <label>Sélectionnez un étudiant :</label>
+                    <select id="select-etudiant-notes" onchange="afficherNotes()"></select>
+                </div>
+                
+                <div class="ajout-note-etudiant">
+                    <label>Ajouter une note à cet étudiant :</label>
+                    <form id="form-ajout-note" onsubmit="ajouterNote(event)" class="form-ajout-note">
+                        <input type="text" id="ajout-matiere" placeholder="Matière (ex: Math)" required>
+                        <input type="number" step="0.01" id="ajout-valeur" placeholder="Note / 20" required>
+                        <button type="submit" class="btn-ajouter">Enregistrer Note</button>
+                    </form>
+                </div>
+            </div>
+
+        <div class="boite" style="margin-top: 20px;">
+            <h3>📋 Notes de l'étudiant</h3>
+            <div id="liste-notes">
+                <p style="color: var(--text-muted); font-style: italic; margin: 0;">Veuillez d'abord sélectionner un étudiant pour voir ses notes.</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Section Classement -->
+        <div id="section-classement">
+            <h1 style="color: var(--primary);">3. Classement par moyenne</h1>
+            <div class="table-responsive">
+                <table class="mon-tableau">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Etudiant</th>
+                            <th>Moyenne</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-classement">
+                        <!-- injecter en JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
